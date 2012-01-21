@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7DA40D3D14CA8905000466E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA40D3C14CA8905000466E5 /* UIKit.framework */; };
+		7DA40D3F14CA8905000466E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA40D3E14CA8905000466E5 /* Foundation.framework */; };
+		7DA40D4114CA8905000466E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA40D4014CA8905000466E5 /* CoreGraphics.framework */; };
+		7DA40D4714CA8905000466E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DA40D4514CA8905000466E5 /* InfoPlist.strings */; };
+		7DA40D4914CA8905000466E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D4814CA8905000466E5 /* main.m */; };
+		7DA40D4D14CA8905000466E5 /* HandsOffAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D4C14CA8905000466E5 /* HandsOffAppDelegate.m */; };
+		7DA40D5014CA8905000466E5 /* HandsOffMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D4F14CA8905000466E5 /* HandsOffMainViewController.m */; };
+		7DA40D5314CA8905000466E5 /* HandsOffFlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D5214CA8905000466E5 /* HandsOffFlipsideViewController.m */; };
+		7DA40D5614CA8905000466E5 /* HandsOffMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA40D5414CA8905000466E5 /* HandsOffMainViewController.xib */; };
+		7DA40D5914CA8905000466E5 /* HandsOffFlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA40D5714CA8905000466E5 /* HandsOffFlipsideViewController.xib */; };
+		7DA40D6114CA8906000466E5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA40D6014CA8906000466E5 /* SenTestingKit.framework */; };
+		7DA40D6214CA8906000466E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA40D3C14CA8905000466E5 /* UIKit.framework */; };
+		7DA40D6314CA8906000466E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA40D3E14CA8905000466E5 /* Foundation.framework */; };
+		7DA40D6B14CA8906000466E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DA40D6914CA8906000466E5 /* InfoPlist.strings */; };
+		7DA40D6E14CA8906000466E5 /* HandsOffTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D6D14CA8906000466E5 /* HandsOffTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7DA40D6414CA8906000466E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA40D2F14CA8905000466E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DA40D3714CA8905000466E5;
+			remoteInfo = HandsOff;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7DA40D3814CA8905000466E5 /* HandsOff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsOff.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DA40D3C14CA8905000466E5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7DA40D3E14CA8905000466E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7DA40D4014CA8905000466E5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7DA40D4414CA8905000466E5 /* HandsOff-Info.plist */ = {isa = PBXFileReference; path = "HandsOff-Info.plist"; sourceTree = "<group>"; };
+		7DA40D4614CA8905000466E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7DA40D4814CA8905000466E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7DA40D4A14CA8905000466E5 /* HandsOff-Prefix.pch */ = {isa = PBXFileReference; path = "HandsOff-Prefix.pch"; sourceTree = "<group>"; };
+		7DA40D4B14CA8905000466E5 /* HandsOffAppDelegate.h */ = {isa = PBXFileReference; path = HandsOffAppDelegate.h; sourceTree = "<group>"; };
+		7DA40D4C14CA8905000466E5 /* HandsOffAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandsOffAppDelegate.m; sourceTree = "<group>"; };
+		7DA40D4E14CA8905000466E5 /* HandsOffMainViewController.h */ = {isa = PBXFileReference; path = HandsOffMainViewController.h; sourceTree = "<group>"; };
+		7DA40D4F14CA8905000466E5 /* HandsOffMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandsOffMainViewController.m; sourceTree = "<group>"; };
+		7DA40D5114CA8905000466E5 /* HandsOffFlipsideViewController.h */ = {isa = PBXFileReference; path = HandsOffFlipsideViewController.h; sourceTree = "<group>"; };
+		7DA40D5214CA8905000466E5 /* HandsOffFlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandsOffFlipsideViewController.m; sourceTree = "<group>"; };
+		7DA40D5514CA8905000466E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HandsOffMainViewController.xib; sourceTree = "<group>"; };
+		7DA40D5814CA8905000466E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HandsOffFlipsideViewController.xib; sourceTree = "<group>"; };
+		7DA40D5F14CA8906000466E5 /* HandsOffTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandsOffTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DA40D6014CA8906000466E5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		7DA40D6814CA8906000466E5 /* HandsOffTests-Info.plist */ = {isa = PBXFileReference; path = "HandsOffTests-Info.plist"; sourceTree = "<group>"; };
+		7DA40D6A14CA8906000466E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7DA40D6C14CA8906000466E5 /* HandsOffTests.h */ = {isa = PBXFileReference; path = HandsOffTests.h; sourceTree = "<group>"; };
+		7DA40D6D14CA8906000466E5 /* HandsOffTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandsOffTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7DA40D3514CA8905000466E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA40D3D14CA8905000466E5 /* UIKit.framework in Frameworks */,
+				7DA40D3F14CA8905000466E5 /* Foundation.framework in Frameworks */,
+				7DA40D4114CA8905000466E5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA40D5B14CA8906000466E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA40D6114CA8906000466E5 /* SenTestingKit.framework in Frameworks */,
+				7DA40D6214CA8906000466E5 /* UIKit.framework in Frameworks */,
+				7DA40D6314CA8906000466E5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7DA40D2D14CA8905000466E5 = {
+			isa = PBXGroup;
+			children = (
+				7DA40D4214CA8905000466E5 /* HandsOff */,
+				7DA40D6614CA8906000466E5 /* HandsOffTests */,
+				7DA40D3B14CA8905000466E5 /* Frameworks */,
+				7DA40D3914CA8905000466E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7DA40D3914CA8905000466E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7DA40D3814CA8905000466E5 /* HandsOff.app */,
+				7DA40D5F14CA8906000466E5 /* HandsOffTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DA40D3B14CA8905000466E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DA40D3C14CA8905000466E5 /* UIKit.framework */,
+				7DA40D3E14CA8905000466E5 /* Foundation.framework */,
+				7DA40D4014CA8905000466E5 /* CoreGraphics.framework */,
+				7DA40D6014CA8906000466E5 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DA40D4214CA8905000466E5 /* HandsOff */ = {
+			isa = PBXGroup;
+			children = (
+				7DA40D4B14CA8905000466E5 /* HandsOffAppDelegate.h */,
+				7DA40D4C14CA8905000466E5 /* HandsOffAppDelegate.m */,
+				7DA40D4E14CA8905000466E5 /* HandsOffMainViewController.h */,
+				7DA40D4F14CA8905000466E5 /* HandsOffMainViewController.m */,
+				7DA40D5114CA8905000466E5 /* HandsOffFlipsideViewController.h */,
+				7DA40D5214CA8905000466E5 /* HandsOffFlipsideViewController.m */,
+				7DA40D5414CA8905000466E5 /* HandsOffMainViewController.xib */,
+				7DA40D5714CA8905000466E5 /* HandsOffFlipsideViewController.xib */,
+				7DA40D4314CA8905000466E5 /* Supporting Files */,
+			);
+			path = HandsOff;
+			sourceTree = "<group>";
+		};
+		7DA40D4314CA8905000466E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7DA40D4414CA8905000466E5 /* HandsOff-Info.plist */,
+				7DA40D4514CA8905000466E5 /* InfoPlist.strings */,
+				7DA40D4814CA8905000466E5 /* main.m */,
+				7DA40D4A14CA8905000466E5 /* HandsOff-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7DA40D6614CA8906000466E5 /* HandsOffTests */ = {
+			isa = PBXGroup;
+			children = (
+				7DA40D6C14CA8906000466E5 /* HandsOffTests.h */,
+				7DA40D6D14CA8906000466E5 /* HandsOffTests.m */,
+				7DA40D6714CA8906000466E5 /* Supporting Files */,
+			);
+			path = HandsOffTests;
+			sourceTree = "<group>";
+		};
+		7DA40D6714CA8906000466E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7DA40D6814CA8906000466E5 /* HandsOffTests-Info.plist */,
+				7DA40D6914CA8906000466E5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7DA40D3714CA8905000466E5 /* HandsOff */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DA40D7114CA8906000466E5 /* Build configuration list for PBXNativeTarget "HandsOff" */;
+			buildPhases = (
+				7DA40D3414CA8905000466E5 /* Sources */,
+				7DA40D3514CA8905000466E5 /* Frameworks */,
+				7DA40D3614CA8905000466E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HandsOff;
+			productName = HandsOff;
+			productReference = 7DA40D3814CA8905000466E5 /* HandsOff.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7DA40D5E14CA8906000466E5 /* HandsOffTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DA40D7414CA8906000466E5 /* Build configuration list for PBXNativeTarget "HandsOffTests" */;
+			buildPhases = (
+				7DA40D5A14CA8906000466E5 /* Sources */,
+				7DA40D5B14CA8906000466E5 /* Frameworks */,
+				7DA40D5C14CA8906000466E5 /* Resources */,
+				7DA40D5D14CA8906000466E5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7DA40D6514CA8906000466E5 /* PBXTargetDependency */,
+			);
+			name = HandsOffTests;
+			productName = HandsOffTests;
+			productReference = 7DA40D5F14CA8906000466E5 /* HandsOffTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7DA40D2F14CA8905000466E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 7DA40D3214CA8905000466E5 /* Build configuration list for PBXProject "HandsOff" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DA40D2D14CA8905000466E5;
+			productRefGroup = 7DA40D3914CA8905000466E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7DA40D3714CA8905000466E5 /* HandsOff */,
+				7DA40D5E14CA8906000466E5 /* HandsOffTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7DA40D3614CA8905000466E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA40D4714CA8905000466E5 /* InfoPlist.strings in Resources */,
+				7DA40D5614CA8905000466E5 /* HandsOffMainViewController.xib in Resources */,
+				7DA40D5914CA8905000466E5 /* HandsOffFlipsideViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA40D5C14CA8906000466E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA40D6B14CA8906000466E5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7DA40D5D14CA8906000466E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7DA40D3414CA8905000466E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA40D4914CA8905000466E5 /* main.m in Sources */,
+				7DA40D4D14CA8905000466E5 /* HandsOffAppDelegate.m in Sources */,
+				7DA40D5014CA8905000466E5 /* HandsOffMainViewController.m in Sources */,
+				7DA40D5314CA8905000466E5 /* HandsOffFlipsideViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA40D5A14CA8906000466E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA40D6E14CA8906000466E5 /* HandsOffTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7DA40D6514CA8906000466E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7DA40D3714CA8905000466E5 /* HandsOff */;
+			targetProxy = 7DA40D6414CA8906000466E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7DA40D4514CA8905000466E5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DA40D4614CA8905000466E5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7DA40D5414CA8905000466E5 /* HandsOffMainViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DA40D5514CA8905000466E5 /* en */,
+			);
+			name = HandsOffMainViewController.xib;
+			sourceTree = "<group>";
+		};
+		7DA40D5714CA8905000466E5 /* HandsOffFlipsideViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DA40D5814CA8905000466E5 /* en */,
+			);
+			name = HandsOffFlipsideViewController.xib;
+			sourceTree = "<group>";
+		};
+		7DA40D6914CA8906000466E5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DA40D6A14CA8906000466E5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7DA40D6F14CA8906000466E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7DA40D7014CA8906000466E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7DA40D7214CA8906000466E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HandsOff/HandsOff-Prefix.pch";
+				INFOPLIST_FILE = "HandsOff/HandsOff-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7DA40D7314CA8906000466E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HandsOff/HandsOff-Prefix.pch";
+				INFOPLIST_FILE = "HandsOff/HandsOff-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7DA40D7514CA8906000466E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HandsOff.app/HandsOff";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HandsOff/HandsOff-Prefix.pch";
+				INFOPLIST_FILE = "HandsOffTests/HandsOffTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		7DA40D7614CA8906000466E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HandsOff.app/HandsOff";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HandsOff/HandsOff-Prefix.pch";
+				INFOPLIST_FILE = "HandsOffTests/HandsOffTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7DA40D3214CA8905000466E5 /* Build configuration list for PBXProject "HandsOff" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DA40D6F14CA8906000466E5 /* Debug */,
+				7DA40D7014CA8906000466E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DA40D7114CA8906000466E5 /* Build configuration list for PBXNativeTarget "HandsOff" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DA40D7214CA8906000466E5 /* Debug */,
+				7DA40D7314CA8906000466E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7DA40D7414CA8906000466E5 /* Build configuration list for PBXNativeTarget "HandsOffTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DA40D7514CA8906000466E5 /* Debug */,
+				7DA40D7614CA8906000466E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7DA40D2F14CA8905000466E5 /* Project object */;
+}
