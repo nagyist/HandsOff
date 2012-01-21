@@ -23,6 +23,12 @@
 		7DA40D6B14CA8906000466E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DA40D6914CA8906000466E5 /* InfoPlist.strings */; };
 		7DA40D6E14CA8906000466E5 /* HandsOffTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D6D14CA8906000466E5 /* HandsOffTests.m */; };
 		7DA40D7B14CA9AD2000466E5 /* AppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D7A14CA9AD2000466E5 /* AppStore.m */; };
+		7DA40D8714CB36C7000466E5 /* HelperFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D8614CB36C7000466E5 /* HelperFunctions.m */; };
+		7DA40D9314CB59DA000466E5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA40D9214CB59DA000466E5 /* AVFoundation.framework */; };
+		7DA40D9614CB5AB9000466E5 /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DA40D9414CB5AB9000466E5 /* error.mp3 */; };
+		7DA40D9714CB5AB9000466E5 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DA40D9514CB5AB9000466E5 /* win.mp3 */; };
+		7DA40D9914CB5CBB000466E5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA40D9814CB5CBA000466E5 /* Security.framework */; };
+		7DA40D9C14CB6251000466E5 /* HandsOffAttempt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D9B14CB6251000466E5 /* HandsOffAttempt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,14 @@
 		7DA40D6D14CA8906000466E5 /* HandsOffTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandsOffTests.m; sourceTree = "<group>"; };
 		7DA40D7914CA9AD2000466E5 /* AppStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStore.h; sourceTree = "<group>"; };
 		7DA40D7A14CA9AD2000466E5 /* AppStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStore.m; sourceTree = "<group>"; };
+		7DA40D8514CB36C7000466E5 /* HelperFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperFunctions.h; sourceTree = "<group>"; };
+		7DA40D8614CB36C7000466E5 /* HelperFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperFunctions.m; sourceTree = "<group>"; };
+		7DA40D9214CB59DA000466E5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7DA40D9414CB5AB9000466E5 /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
+		7DA40D9514CB5AB9000466E5 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
+		7DA40D9814CB5CBA000466E5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7DA40D9A14CB6251000466E5 /* HandsOffAttempt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandsOffAttempt.h; sourceTree = "<group>"; };
+		7DA40D9B14CB6251000466E5 /* HandsOffAttempt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandsOffAttempt.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DA40D9914CB5CBB000466E5 /* Security.framework in Frameworks */,
+				7DA40D9314CB59DA000466E5 /* AVFoundation.framework in Frameworks */,
 				7DA40D3D14CA8905000466E5 /* UIKit.framework in Frameworks */,
 				7DA40D3F14CA8905000466E5 /* Foundation.framework in Frameworks */,
 				7DA40D4114CA8905000466E5 /* CoreGraphics.framework in Frameworks */,
@@ -89,6 +105,10 @@
 		7DA40D2D14CA8905000466E5 = {
 			isa = PBXGroup;
 			children = (
+				7DA40D9A14CB6251000466E5 /* HandsOffAttempt.h */,
+				7DA40D9B14CB6251000466E5 /* HandsOffAttempt.m */,
+				7DA40D9814CB5CBA000466E5 /* Security.framework */,
+				7DA40D9214CB59DA000466E5 /* AVFoundation.framework */,
 				7DA40D4214CA8905000466E5 /* HandsOff */,
 				7DA40D6614CA8906000466E5 /* HandsOffTests */,
 				7DA40D3B14CA8905000466E5 /* Frameworks */,
@@ -123,6 +143,8 @@
 				7DA40D4C14CA8905000466E5 /* HandsOffAppDelegate.m */,
 				7DA40D4E14CA8905000466E5 /* HandsOffMainViewController.h */,
 				7DA40D4F14CA8905000466E5 /* HandsOffMainViewController.m */,
+				7DA40D8514CB36C7000466E5 /* HelperFunctions.h */,
+				7DA40D8614CB36C7000466E5 /* HelperFunctions.m */,
 				7DA40D7914CA9AD2000466E5 /* AppStore.h */,
 				7DA40D7A14CA9AD2000466E5 /* AppStore.m */,
 				7DA40D5114CA8905000466E5 /* HandsOffFlipsideViewController.h */,
@@ -137,6 +159,8 @@
 		7DA40D4314CA8905000466E5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7DA40D9414CB5AB9000466E5 /* error.mp3 */,
+				7DA40D9514CB5AB9000466E5 /* win.mp3 */,
 				7DA40D4414CA8905000466E5 /* HandsOff-Info.plist */,
 				7DA40D4514CA8905000466E5 /* InfoPlist.strings */,
 				7DA40D4814CA8905000466E5 /* main.m */,
@@ -237,6 +261,8 @@
 				7DA40D4714CA8905000466E5 /* InfoPlist.strings in Resources */,
 				7DA40D5614CA8905000466E5 /* HandsOffMainViewController.xib in Resources */,
 				7DA40D5914CA8905000466E5 /* HandsOffFlipsideViewController.xib in Resources */,
+				7DA40D9614CB5AB9000466E5 /* error.mp3 in Resources */,
+				7DA40D9714CB5AB9000466E5 /* win.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +302,8 @@
 				7DA40D5014CA8905000466E5 /* HandsOffMainViewController.m in Sources */,
 				7DA40D5314CA8905000466E5 /* HandsOffFlipsideViewController.m in Sources */,
 				7DA40D7B14CA9AD2000466E5 /* AppStore.m in Sources */,
+				7DA40D8714CB36C7000466E5 /* HelperFunctions.m in Sources */,
+				7DA40D9C14CB6251000466E5 /* HandsOffAttempt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

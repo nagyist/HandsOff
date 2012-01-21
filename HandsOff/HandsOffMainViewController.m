@@ -97,6 +97,7 @@
 
 	//declare an int that represents the number of desired seconds of focus time
 	float desiredFocusTime;
+	int desiredFocusTimeInSeconds;
 	//declare an date that represents when the system will let you know that you've succeeded
 	NSDate *timeToStop;
 	
@@ -110,8 +111,10 @@
 		desiredFocusTime = [[times objectForKey:@"btnTime4"] floatValue];		
 	}
 	
+	desiredFocusTimeInSeconds = (int)(desiredFocusTime * 3600);
+	
 	//make an NSDate that schedules the notification
-	timeToStop = [[[NSDate alloc] init] dateByAddingTimeInterval:desiredFocusTime * 3600];
+	timeToStop = [[[NSDate alloc] init] dateByAddingTimeInterval:desiredFocusTimeInSeconds];
 	
 	//build localNotification
 	UILocalNotification *localNotification = [[UILocalNotification alloc] init];
@@ -123,19 +126,80 @@
 	
 	[localNotification setAlertBody:@"Woo-Hoo! You can use your phone now."];
 	[localNotification setAlertAction:@"OK"]; 
+	[localNotification setSoundName:UILocalNotificationDefaultSoundName];
 	
 	[[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 	
-	//finally, store timeToStop as the global stop time
+	//store timeToStop as the global stop time
 	[[AppStore sharedInstance] setCurrentFocusTargetDate:timeToStop];
+
+	//tell user to lock their phone
+	if (lockYourPhoneAlert)
+	{
+		lockYourPhoneAlert = nil;
+	}
+	lockYourPhoneAlert = [[UIAlertView alloc] initWithTitle:@"Lock your phone"
+													message:[NSString stringWithFormat:@"%@ %@", @"Press the lock button (don't press the Home button!), and don't come back for", timeStringFromDesiredFocusTime(desiredFocusTimeInSeconds)]
+												   delegate:self 
+										  cancelButtonTitle:@"OK" 
+										  otherButtonTitles:nil, nil];
+	[lockYourPhoneAlert show];
 }
 
--(void)userFailed{
+-(void)userReturnedToAppEarly
+{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You lose!" 
+													message:@"Worse iPhoner ever"
+												   delegate:self
+										  cancelButtonTitle:@"Gee, thanks" 
+										  otherButtonTitles:nil];
+	[alert show];
 	
+	
+
+    // Converts the sound's file path to an NSURL object
+    NSURL *newURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"error"
+																			ofType:@"mp3"]];
+
+//    NSURL *newURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@error.mp3", [[NSBundle mainBundle] resourcePath]]];
+	NSLog(@"%@", [newURL path]);
+	
+	NSError *error;
+	AVAudioPlayer *errorSound = [[AVAudioPlayer alloc] initWithContentsOfURL:newURL error:&error];
+	if (error)
+		NSLog(@"error");
+	else
+		NSLog(@"that went well");
+	[errorSound prepareToPlay];
+	[errorSound setVolume:1.0];
+	[errorSound setDelegate:self];
+	[errorSound play];
+	
+	//we're all done, get rid of the currently set time.
+	[[AppStore sharedInstance] setCurrentFocusTargetDate:nil];
+}
+-(void)userReturnedToAppVictorious
+{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You win!" 
+													message:@"Best iPhoner ever"
+												   delegate:self
+										  cancelButtonTitle:@"I AM GOD" 
+										  otherButtonTitles:nil];
+	[alert show];
+	
+	
+	
+}
+-(void)forceCloseLockYourPhoneAlert
+{
+	if (lockYourPhoneAlert)
+	{
+		[lockYourPhoneAlert dismissWithClickedButtonIndex:0 animated:YES];
+		lockYourPhoneAlert = nil;
+	}
 }
 
--(void)userSucceeded {
-	
-}
+#pragma mark AVAudioPlayerDelegate methods
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{}
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import "HandsOffFlipsideViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import <Security/Security.h>
 
-@interface HandsOffMainViewController : UIViewController <HandsOffFlipsideViewControllerDelegate>
+@interface HandsOffMainViewController : UIViewController <HandsOffFlipsideViewControllerDelegate, AVAudioPlayerDelegate>
 {
 	
 	
@@ -16,9 +18,11 @@
 	__weak IBOutlet UIButton *btnTime2;
 	__weak IBOutlet UIButton *btnTime3;
 	__weak IBOutlet UIButton *btnTime4;
+	UIAlertView *lockYourPhoneAlert;
 }
 - (IBAction)showInfo:(id)sender;
 - (IBAction)startTime:(id)sender;
-- (void)userFailed;
-- (void)userSucceeded;
+- (void)userReturnedToAppEarly;
+- (void)userReturnedToAppVictorious;
+- (void)forceCloseLockYourPhoneAlert;
 @end
