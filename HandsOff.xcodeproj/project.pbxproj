@@ -22,6 +22,7 @@
 		7DA40D6314CA8906000466E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA40D3E14CA8905000466E5 /* Foundation.framework */; };
 		7DA40D6B14CA8906000466E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DA40D6914CA8906000466E5 /* InfoPlist.strings */; };
 		7DA40D6E14CA8906000466E5 /* HandsOffTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D6D14CA8906000466E5 /* HandsOffTests.m */; };
+		7DA40D7B14CA9AD2000466E5 /* AppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA40D7A14CA9AD2000466E5 /* AppStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,24 +40,26 @@
 		7DA40D3C14CA8905000466E5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7DA40D3E14CA8905000466E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7DA40D4014CA8905000466E5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		7DA40D4414CA8905000466E5 /* HandsOff-Info.plist */ = {isa = PBXFileReference; path = "HandsOff-Info.plist"; sourceTree = "<group>"; };
+		7DA40D4414CA8905000466E5 /* HandsOff-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HandsOff-Info.plist"; sourceTree = "<group>"; };
 		7DA40D4614CA8905000466E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7DA40D4814CA8905000466E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7DA40D4A14CA8905000466E5 /* HandsOff-Prefix.pch */ = {isa = PBXFileReference; path = "HandsOff-Prefix.pch"; sourceTree = "<group>"; };
-		7DA40D4B14CA8905000466E5 /* HandsOffAppDelegate.h */ = {isa = PBXFileReference; path = HandsOffAppDelegate.h; sourceTree = "<group>"; };
+		7DA40D4A14CA8905000466E5 /* HandsOff-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HandsOff-Prefix.pch"; sourceTree = "<group>"; };
+		7DA40D4B14CA8905000466E5 /* HandsOffAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandsOffAppDelegate.h; sourceTree = "<group>"; };
 		7DA40D4C14CA8905000466E5 /* HandsOffAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandsOffAppDelegate.m; sourceTree = "<group>"; };
-		7DA40D4E14CA8905000466E5 /* HandsOffMainViewController.h */ = {isa = PBXFileReference; path = HandsOffMainViewController.h; sourceTree = "<group>"; };
+		7DA40D4E14CA8905000466E5 /* HandsOffMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandsOffMainViewController.h; sourceTree = "<group>"; };
 		7DA40D4F14CA8905000466E5 /* HandsOffMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandsOffMainViewController.m; sourceTree = "<group>"; };
-		7DA40D5114CA8905000466E5 /* HandsOffFlipsideViewController.h */ = {isa = PBXFileReference; path = HandsOffFlipsideViewController.h; sourceTree = "<group>"; };
+		7DA40D5114CA8905000466E5 /* HandsOffFlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandsOffFlipsideViewController.h; sourceTree = "<group>"; };
 		7DA40D5214CA8905000466E5 /* HandsOffFlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandsOffFlipsideViewController.m; sourceTree = "<group>"; };
 		7DA40D5514CA8905000466E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HandsOffMainViewController.xib; sourceTree = "<group>"; };
 		7DA40D5814CA8905000466E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HandsOffFlipsideViewController.xib; sourceTree = "<group>"; };
 		7DA40D5F14CA8906000466E5 /* HandsOffTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandsOffTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DA40D6014CA8906000466E5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		7DA40D6814CA8906000466E5 /* HandsOffTests-Info.plist */ = {isa = PBXFileReference; path = "HandsOffTests-Info.plist"; sourceTree = "<group>"; };
+		7DA40D6814CA8906000466E5 /* HandsOffTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HandsOffTests-Info.plist"; sourceTree = "<group>"; };
 		7DA40D6A14CA8906000466E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7DA40D6C14CA8906000466E5 /* HandsOffTests.h */ = {isa = PBXFileReference; path = HandsOffTests.h; sourceTree = "<group>"; };
+		7DA40D6C14CA8906000466E5 /* HandsOffTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandsOffTests.h; sourceTree = "<group>"; };
 		7DA40D6D14CA8906000466E5 /* HandsOffTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandsOffTests.m; sourceTree = "<group>"; };
+		7DA40D7914CA9AD2000466E5 /* AppStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStore.h; sourceTree = "<group>"; };
+		7DA40D7A14CA9AD2000466E5 /* AppStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				7DA40D4C14CA8905000466E5 /* HandsOffAppDelegate.m */,
 				7DA40D4E14CA8905000466E5 /* HandsOffMainViewController.h */,
 				7DA40D4F14CA8905000466E5 /* HandsOffMainViewController.m */,
+				7DA40D7914CA9AD2000466E5 /* AppStore.h */,
+				7DA40D7A14CA9AD2000466E5 /* AppStore.m */,
 				7DA40D5114CA8905000466E5 /* HandsOffFlipsideViewController.h */,
 				7DA40D5214CA8905000466E5 /* HandsOffFlipsideViewController.m */,
 				7DA40D5414CA8905000466E5 /* HandsOffMainViewController.xib */,
@@ -270,6 +275,7 @@
 				7DA40D4D14CA8905000466E5 /* HandsOffAppDelegate.m in Sources */,
 				7DA40D5014CA8905000466E5 /* HandsOffMainViewController.m in Sources */,
 				7DA40D5314CA8905000466E5 /* HandsOffFlipsideViewController.m in Sources */,
+				7DA40D7B14CA9AD2000466E5 /* AppStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

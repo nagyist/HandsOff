@@ -15,6 +15,9 @@
 @end
 
 @interface HandsOffFlipsideViewController : UIViewController
+{
+	
+}
 
 @property (weak, nonatomic) IBOutlet id <HandsOffFlipsideViewControllerDelegate> delegate;
 
