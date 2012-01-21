@@ -15,11 +15,6 @@ NSString *timeStringFromDesiredFocusTime(int desiredFocusTimeInSeconds)
 	int hours = desiredFocusTimeInSeconds / 3600;
 	int minutes = (desiredFocusTimeInSeconds%3600) / 60;
 	
-	NSLog(@"desiredfocustimeinseonds %d", desiredFocusTimeInSeconds);
-	NSLog(@"hours and minutes:");
-	NSLog(@"%d", hours);
-	NSLog(@"%d", minutes);
-	
 	NSMutableString *time = [NSMutableString stringWithString:@""];
 	
 	if (hours > 0)
@@ -36,4 +31,13 @@ NSString *timeStringFromDesiredFocusTime(int desiredFocusTimeInSeconds)
 			[time appendFormat:@"%d minutes", minutes];			
 
 	return [NSString stringWithString:time];		
+}
+
+NSString *pathInDocumentDirectory(NSString *fileName)
+{
+	NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	
+	NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+	
+	return [documentDirectory stringByAppendingPathComponent:fileName];
 }

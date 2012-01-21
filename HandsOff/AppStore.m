@@ -1,7 +1,9 @@
 #import "AppStore.h"
 
+
 @implementation AppStore
 @synthesize currentFocusTargetDate;
+@synthesize currentFocusTimeInSeconds;
 static AppStore *sharedInstance = nil;
 
 // Get the shared instance and create it if necessary.
@@ -35,4 +37,51 @@ static AppStore *sharedInstance = nil;
     return self;
 }
 
+#pragma Saving attempts!
+- (NSString *)allAttemptsArchivePath
+{
+	return pathInDocumentDirectory(@"allPossessions.data");
+}
+
+- (void)fetchAttemptsIfNecessary
+{
+	//load allAttempts array if it doesn't already exist
+	//don't have an attempt
+	if (!attempts)
+	{
+		NSString *path = [self allAttemptsArchivePath];
+		attempts = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+	}
+	
+	//looks like we've never saved anything before
+	if (!attempts)
+	{
+		attempts = [[NSMutableArray alloc] init];
+	}
+	
+	NSLog(@"number of attempts: %d", [attempts count]);
+}
+
+//not synthesizing attempts property.
+//here we are returning a non-mutable copy of the attempts array
+-(NSArray *)attempts
+{
+	return [NSArray arrayWithArray:attempts];
+}
+
+
+- (BOOL)saveAttempts
+{
+	[self fetchAttemptsIfNecessary];
+	return [NSKeyedArchiver archiveRootObject:attempts 
+									   toFile:[self allAttemptsArchivePath]];
+}
+
+- (void)addAttempt:(HandsOffAttempt *)attempt
+{
+	//theoretically, there is no need to fetch.  if we are coming back to the app, it means we 
+	//already loaded the array.  however, just in case -- we'll load it here.
+	[self fetchAttemptsIfNecessary];
+	[attempts addObject:attempt];
+}
 @end

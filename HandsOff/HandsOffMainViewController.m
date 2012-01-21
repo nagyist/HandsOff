@@ -160,16 +160,10 @@
     // Converts the sound's file path to an NSURL object
     NSURL *newURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"error"
 																			ofType:@"mp3"]];
-
-//    NSURL *newURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@error.mp3", [[NSBundle mainBundle] resourcePath]]];
-	NSLog(@"%@", [newURL path]);
 	
 	NSError *error;
 	AVAudioPlayer *errorSound = [[AVAudioPlayer alloc] initWithContentsOfURL:newURL error:&error];
-	if (error)
-		NSLog(@"error");
-	else
-		NSLog(@"that went well");
+
 	[errorSound prepareToPlay];
 	[errorSound setVolume:1.0];
 	[errorSound setDelegate:self];

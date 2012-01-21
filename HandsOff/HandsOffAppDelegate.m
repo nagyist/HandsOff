@@ -34,6 +34,9 @@
 	//if the user just started a timer, and locked their phone, we want to make sure the
 	//"Lock your Phone" message is dismissed"
 	[self.mainViewController forceCloseLockYourPhoneAlert];
+	
+	//save array of attempts in App Store
+	[[AppStore sharedInstance] saveAttempts];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -53,18 +56,33 @@
 
 	
 	//for lack of a better place, we're going to check to see if they FAIL here
-	NSDate *currentFocusTargetDate = [[AppStore sharedInstance] currentFocusTargetDate];
+	NSDate *currentFocusTargetDate = [[AppStore sharedInstance] currentFocusTargetDate];	
 	if (currentFocusTargetDate) 
 	{
+		NSNumber *currentFocusTimeInSeconds = [[AppStore sharedInstance] currentFocusTimeInSeconds];
+		
+		NSDate *now = [[NSDate alloc] init];
+		//we're only storing their target date. so we'll need to calculate the time they started,
+		//which is Now - currentFocusTargetDate - currentFocusTimeInSeconds
+		NSDate *startTime = [[NSDate alloc] initWithTimeInterval:-(int)currentFocusTimeInSeconds sinceDate:currentFocusTargetDate];
+		NSDate *endTime = now;
+		
+		//make new Attempt object
+		bool success = [now timeIntervalSinceDate:currentFocusTargetDate] > 0;
+		[[AppStore sharedInstance] addAttempt:
+						[[HandsOffAttempt alloc] initWithStartDate:startTime
+														   endDate:endTime 
+													 wasSuccessful:success]];
+		//write attempts to storage
+		[[AppStore sharedInstance] saveAttempts];
+		
+		//now do logic to let user know if they blew it or not
 		HandsOffMainViewController *rootVC = (HandsOffMainViewController *)[[self window] rootViewController];
-		if ([[[NSDate alloc] init] timeIntervalSinceDate:currentFocusTargetDate] < 0)
-		{
-			//FAIL!
-			[rootVC userReturnedToAppEarly];
-		} else {
-			//USER WINS!
+		
+		if (success)
 			[rootVC userReturnedToAppVictorious];
-		}
+		else
+			[rootVC userReturnedToAppEarly];			
 	}
 }
 

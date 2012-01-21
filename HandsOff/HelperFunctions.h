@@ -9,3 +9,4 @@
 #import <Foundation/Foundation.h>
 
 NSString *timeStringFromDesiredFocusTime(int desiredFocusTimeInSeconds);
+NSString *pathInDocumentDirectory(NSString *fileName);
