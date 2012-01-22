@@ -13,11 +13,16 @@
 	NSDate *startDate;
 	NSDate *endDate;
 	BOOL wasSuccessful;
+	NSTimeInterval attemptedLength;
+	NSTimeInterval completedLength;
 }
 @property(nonatomic,readonly) NSDate *startDate;
 @property(nonatomic,readonly) NSDate *endDate;
+@property(nonatomic,readonly) NSTimeInterval attemptedLength;
+@property(nonatomic,readonly) NSTimeInterval completedLength;
 @property(nonatomic,readonly) BOOL wasSuccessful;
 
--(id)initWithStartDate:(NSDate *)start endDate:(NSDate *)end wasSuccessful:(BOOL)success;
+-(id)initWithStartDate:(NSDate *)start desiredLength:(NSTimeInterval)length;
+-(void)endAttempt;
 
 @end

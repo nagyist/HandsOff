@@ -2,8 +2,7 @@
 
 
 @implementation AppStore
-@synthesize currentFocusTargetDate;
-@synthesize currentFocusTimeInSeconds;
+@synthesize currentAttempt;
 static AppStore *sharedInstance = nil;
 
 // Get the shared instance and create it if necessary.
@@ -40,7 +39,7 @@ static AppStore *sharedInstance = nil;
 #pragma Saving attempts!
 - (NSString *)allAttemptsArchivePath
 {
-	return pathInDocumentDirectory(@"allPossessions.data");
+	return pathInDocumentDirectory(@"allAttempts.data");
 }
 
 - (void)fetchAttemptsIfNecessary
@@ -58,19 +57,18 @@ static AppStore *sharedInstance = nil;
 	{
 		attempts = [[NSMutableArray alloc] init];
 	}
-	
-	NSLog(@"number of attempts: %d", [attempts count]);
 }
 
 //not synthesizing attempts property.
 //here we are returning a non-mutable copy of the attempts array
 -(NSArray *)attempts
 {
+	[self fetchAttemptsIfNecessary];
 	return [NSArray arrayWithArray:attempts];
 }
 
 
-- (BOOL)saveAttempts
+- (BOOL)archiveAttempts
 {
 	[self fetchAttemptsIfNecessary];
 	return [NSKeyedArchiver archiveRootObject:attempts 
@@ -83,5 +81,6 @@ static AppStore *sharedInstance = nil;
 	//already loaded the array.  however, just in case -- we'll load it here.
 	[self fetchAttemptsIfNecessary];
 	[attempts addObject:attempt];
+	[self archiveAttempts];
 }
 @end

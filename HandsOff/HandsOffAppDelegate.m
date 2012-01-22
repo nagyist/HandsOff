@@ -36,7 +36,7 @@
 	[self.mainViewController forceCloseLockYourPhoneAlert];
 	
 	//save array of attempts in App Store
-	[[AppStore sharedInstance] saveAttempts];
+	[[AppStore sharedInstance] archiveAttempts];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -55,31 +55,21 @@
 	 */
 
 	
-	//for lack of a better place, we're going to check to see if they FAIL here
-	NSDate *currentFocusTargetDate = [[AppStore sharedInstance] currentFocusTargetDate];	
-	if (currentFocusTargetDate) 
+	//we're going to check for a FAIL or WIN here.
+	HandsOffAttempt *currentAttempt = [[AppStore sharedInstance] currentAttempt];	
+	if (currentAttempt)
 	{
-		NSNumber *currentFocusTimeInSeconds = [[AppStore sharedInstance] currentFocusTimeInSeconds];
-		
-		NSDate *now = [[NSDate alloc] init];
-		//we're only storing their target date. so we'll need to calculate the time they started,
-		//which is Now - currentFocusTargetDate - currentFocusTimeInSeconds
-		NSDate *startTime = [[NSDate alloc] initWithTimeInterval:-(int)currentFocusTimeInSeconds sinceDate:currentFocusTargetDate];
-		NSDate *endTime = now;
-		
-		//make new Attempt object
-		bool success = [now timeIntervalSinceDate:currentFocusTargetDate] > 0;
-		[[AppStore sharedInstance] addAttempt:
-						[[HandsOffAttempt alloc] initWithStartDate:startTime
-														   endDate:endTime 
-													 wasSuccessful:success]];
-		//write attempts to storage
-		[[AppStore sharedInstance] saveAttempts];
+		//close the attempt object
+		[currentAttempt endAttempt];
+		//archive all attempts
+		[[AppStore sharedInstance] archiveAttempts];
+		//get rid of the "current attempt"
+		[[AppStore sharedInstance] setCurrentAttempt:nil];
 		
 		//now do logic to let user know if they blew it or not
 		HandsOffMainViewController *rootVC = (HandsOffMainViewController *)[[self window] rootViewController];
 		
-		if (success)
+		if ([currentAttempt wasSuccessful])
 			[rootVC userReturnedToAppVictorious];
 		else
 			[rootVC userReturnedToAppEarly];			
@@ -101,6 +91,8 @@
 	 Save data if appropriate.
 	 See also applicationDidEnterBackground:.
 	 */
+	
+	[[AppStore sharedInstance] archiveAttempts];
 
 }
 

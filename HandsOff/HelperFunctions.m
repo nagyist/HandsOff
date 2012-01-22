@@ -10,10 +10,10 @@
 
 
 #pragma mark Helper functions
-NSString *timeStringFromDesiredFocusTime(int desiredFocusTimeInSeconds)
+NSString *timeStringFromTimeInterval(NSTimeInterval interval)
 {
-	int hours = desiredFocusTimeInSeconds / 3600;
-	int minutes = (desiredFocusTimeInSeconds%3600) / 60;
+	int hours = (int)interval / 3600;
+	int minutes = ((int)interval%3600) / 60;
 	
 	NSMutableString *time = [NSMutableString stringWithString:@""];
 	

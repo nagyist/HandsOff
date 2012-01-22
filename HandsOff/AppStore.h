@@ -1,18 +1,16 @@
 #import <Foundation/Foundation.h>
 #import "HandsOffAttempt.h"
 @interface AppStore : NSObject {
-	NSDate *currentFocusTargetDate;
-	NSNumber *currentFocusTimeInSeconds;
+	HandsOffAttempt *currentAttempt;
 	NSMutableArray *attempts;
 	
 	//this is private
 }
-@property(nonatomic,retain) NSDate *currentFocusTargetDate;
-@property(nonatomic,retain) NSNumber *currentFocusTimeInSeconds;
+@property(nonatomic,retain) HandsOffAttempt *currentAttempt;
 @property(nonatomic, readonly) NSArray *attempts;
 + (id)sharedInstance;
-- (BOOL)saveAttempts;
 - (void)addAttempt:(HandsOffAttempt*)attempt;
+- (BOOL)archiveAttempts;
 
 
 @end

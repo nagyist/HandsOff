@@ -8,5 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-NSString *timeStringFromDesiredFocusTime(int desiredFocusTimeInSeconds);
+NSString *timeStringFromTimeInterval(NSTimeInterval interval);
 NSString *pathInDocumentDirectory(NSString *fileName);

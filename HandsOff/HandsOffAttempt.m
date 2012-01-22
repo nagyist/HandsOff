@@ -9,18 +9,16 @@
 #import "HandsOffAttempt.h"
 
 @implementation HandsOffAttempt
-@synthesize wasSuccessful, startDate, endDate;
+@synthesize startDate, attemptedLength;
 
 
--(id)initWithStartDate:(NSDate *)start endDate:(NSDate *)end wasSuccessful:(BOOL)success
+-(id)initWithStartDate:(NSDate *)start desiredLength:(NSTimeInterval)length
 {
 	self = [super init];
 	
 	startDate = start;
-	endDate = end;
-	wasSuccessful = success;
+	attemptedLength = length;
 	
-	//add to appstore collection of attempts
 	return self;
 }
 
@@ -30,21 +28,63 @@
 	return nil;
 }
 
+-(void)endAttempt
+{
+	endDate = [[NSDate alloc] init];
+	completedLength = [endDate timeIntervalSinceDate:startDate];
+	wasSuccessful = completedLength >= 0;
+}
+
+
+
+//NOT SYNTHESIZING
+-(NSTimeInterval)completedLength 
+{
+	if (!completedLength)
+		[NSException exceptionWithName:@"Error" reason:@"Cannot read \"Completed Length\" variable in an Attempt that has not finished." userInfo:nil];
+	else
+		return completedLength;
+	//so compiler will stop warning me;	
+	return 0;
+}
+//NOT SYNTHESIZING
+-(BOOL)wasSuccessful
+{
+	if(!wasSuccessful)
+		[NSException exceptionWithName:@"Error" reason:@"Cannot read \"Was Successful\" variable in an Attempt that has not finished." userInfo:nil];	
+	else
+		return wasSuccessful;
+
+	//so compiler will stop warning me;
+	return NO;
+}
+//NOT SYNTHESIZING
+-(NSDate *)endDate
+{
+	if(!endDate)
+		[NSException exceptionWithName:@"Error" reason:@"Cannot read \"End Date\" variable in an Attempt that has not finished." userInfo:nil];	
+	else
+		return endDate;
+	
+	//so compiler will stop warning me;
+	return nil;
+}
+
 #pragma mark NSCoding protocol
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
 	[aCoder encodeObject:startDate forKey:@"startDate"];
-	[aCoder encodeObject:endDate forKey:@"endDate"];
+	[aCoder encodeDouble:attemptedLength forKey:@"attemptedLength"];
 	[aCoder	encodeBool:wasSuccessful forKey:@"wasSuccessful"];
 }
 -(id)initWithCoder:(NSCoder*)decoder
 {
-	self = [self initWithStartDate:nil endDate:nil wasSuccessful:NO];
+	self = [self initWithStartDate:nil desiredLength:0];
 	
 	if (self)
 	{
 		startDate = [decoder decodeObjectForKey:@"startDate"];
-		endDate = [decoder decodeObjectForKey:@"endDate"];
+		attemptedLength = [decoder decodeDoubleForKey:@"endDate"];
 		wasSuccessful = [decoder decodeBoolForKey:@"wasSuccessful"];
 	}
 	

@@ -130,8 +130,21 @@
 	
 	[[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 	
-	//store timeToStop as the global stop time
-	[[AppStore sharedInstance] setCurrentFocusTargetDate:timeToStop];
+	//build a new attempt object and set it as the current Attempt
+	NSDate *now = [[NSDate alloc] init];
+	HandsOffAttempt *newAttempt = [[HandsOffAttempt alloc] initWithStartDate:now 
+															   desiredLength:desiredFocusTimeInSeconds];
+	
+	//if there was a current attempt in memory already -- it's probably because we're in dev mode with only a 5-second timer
+	//to make sure nothing is messed up, we'll close the current attempt.  Yay -- you won ;)
+	if ([[AppStore sharedInstance] currentAttempt]){
+		[[[AppStore sharedInstance] currentAttempt] endAttempt];
+		[[AppStore sharedInstance] setCurrentAttempt:nil];
+	}
+
+	//add this new attempt to the Application Store
+	[[AppStore sharedInstance] setCurrentAttempt:newAttempt];
+	[[AppStore sharedInstance] addAttempt:newAttempt];
 
 	//tell user to lock their phone
 	if (lockYourPhoneAlert)
@@ -139,7 +152,7 @@
 		lockYourPhoneAlert = nil;
 	}
 	lockYourPhoneAlert = [[UIAlertView alloc] initWithTitle:@"Lock your phone"
-													message:[NSString stringWithFormat:@"%@ %@", @"Press the lock button (don't press the Home button!), and don't come back for", timeStringFromDesiredFocusTime(desiredFocusTimeInSeconds)]
+													message:[NSString stringWithFormat:@"%@ %@", @"Press the lock button (don't press the Home button!), and don't come back for", timeStringFromTimeInterval((NSTimeInterval)desiredFocusTimeInSeconds)]
 												   delegate:self 
 										  cancelButtonTitle:@"OK" 
 										  otherButtonTitles:nil, nil];
@@ -168,9 +181,7 @@
 	[errorSound setVolume:1.0];
 	[errorSound setDelegate:self];
 	[errorSound play];
-	
-	//we're all done, get rid of the currently set time.
-	[[AppStore sharedInstance] setCurrentFocusTargetDate:nil];
+
 }
 -(void)userReturnedToAppVictorious
 {
@@ -180,10 +191,10 @@
 										  cancelButtonTitle:@"I AM GOD" 
 										  otherButtonTitles:nil];
 	[alert show];
-	
-	
-	
 }
+
+//when the user get's the "LOCK YOUR PHONE" instruction, they may lock the phone without dismissing this alert
+//exposing this method allows us to force the alert to disappear during ApplicationWillResignAcctive
 -(void)forceCloseLockYourPhoneAlert
 {
 	if (lockYourPhoneAlert)
