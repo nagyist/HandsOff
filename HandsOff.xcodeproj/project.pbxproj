@@ -29,6 +29,10 @@
 		7DA40D9714CB5AB9000466E5 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DA40D9514CB5AB9000466E5 /* win.mp3 */; };
 		7DA40D9914CB5CBB000466E5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA40D9814CB5CBA000466E5 /* Security.framework */; };
 		7DBD09AB14CB661A001873B3 /* HandsOffAttempt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD09AA14CB661A001873B3 /* HandsOffAttempt.m */; };
+		7DBD09AE14CBF43E001873B3 /* checkmark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DBD09AC14CBF43E001873B3 /* checkmark.jpg */; };
+		7DBD09B114CBF9A9001873B3 /* redx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DBD09B014CBF9A9001873B3 /* redx.jpg */; };
+		7DBD09B514CC0719001873B3 /* AttemptFinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD09B314CC0719001873B3 /* AttemptFinishedViewController.m */; };
+		7DBD09B614CC0719001873B3 /* AttemptFinishedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DBD09B414CC0719001873B3 /* AttemptFinishedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,11 @@
 		7DA40D9814CB5CBA000466E5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7DBD09A914CB661A001873B3 /* HandsOffAttempt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandsOffAttempt.h; sourceTree = "<group>"; };
 		7DBD09AA14CB661A001873B3 /* HandsOffAttempt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandsOffAttempt.m; sourceTree = "<group>"; };
+		7DBD09AC14CBF43E001873B3 /* checkmark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = checkmark.jpg; sourceTree = "<group>"; };
+		7DBD09B014CBF9A9001873B3 /* redx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redx.jpg; sourceTree = "<group>"; };
+		7DBD09B214CC0718001873B3 /* AttemptFinishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttemptFinishedViewController.h; sourceTree = "<group>"; };
+		7DBD09B314CC0719001873B3 /* AttemptFinishedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttemptFinishedViewController.m; sourceTree = "<group>"; };
+		7DBD09B414CC0719001873B3 /* AttemptFinishedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttemptFinishedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +114,9 @@
 		7DA40D2D14CA8905000466E5 = {
 			isa = PBXGroup;
 			children = (
+				7DBD09B214CC0718001873B3 /* AttemptFinishedViewController.h */,
+				7DBD09B314CC0719001873B3 /* AttemptFinishedViewController.m */,
+				7DBD09B414CC0719001873B3 /* AttemptFinishedViewController.xib */,
 				7DA40D9814CB5CBA000466E5 /* Security.framework */,
 				7DA40D9214CB59DA000466E5 /* AVFoundation.framework */,
 				7DA40D4214CA8905000466E5 /* HandsOff */,
@@ -159,6 +171,8 @@
 		7DA40D4314CA8905000466E5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7DBD09B014CBF9A9001873B3 /* redx.jpg */,
+				7DBD09AC14CBF43E001873B3 /* checkmark.jpg */,
 				7DA40D9414CB5AB9000466E5 /* error.mp3 */,
 				7DA40D9514CB5AB9000466E5 /* win.mp3 */,
 				7DA40D4414CA8905000466E5 /* HandsOff-Info.plist */,
@@ -263,6 +277,9 @@
 				7DA40D5914CA8905000466E5 /* HandsOffFlipsideViewController.xib in Resources */,
 				7DA40D9614CB5AB9000466E5 /* error.mp3 in Resources */,
 				7DA40D9714CB5AB9000466E5 /* win.mp3 in Resources */,
+				7DBD09AE14CBF43E001873B3 /* checkmark.jpg in Resources */,
+				7DBD09B114CBF9A9001873B3 /* redx.jpg in Resources */,
+				7DBD09B614CC0719001873B3 /* AttemptFinishedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +321,7 @@
 				7DA40D7B14CA9AD2000466E5 /* AppStore.m in Sources */,
 				7DA40D8714CB36C7000466E5 /* HelperFunctions.m in Sources */,
 				7DBD09AB14CB661A001873B3 /* HandsOffAttempt.m in Sources */,
+				7DBD09B514CC0719001873B3 /* AttemptFinishedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

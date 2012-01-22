@@ -12,11 +12,12 @@
 @synthesize startDate, attemptedLength;
 
 
--(id)initWithStartDate:(NSDate *)start desiredLength:(NSTimeInterval)length
+-(id)initWithDesiredLength:(NSTimeInterval)length
 {
 	self = [super init];
 	
-	startDate = start;
+	//make new date
+	startDate = [[NSDate alloc] init];
 	attemptedLength = length;
 	
 	return self;
@@ -32,7 +33,15 @@
 {
 	endDate = [[NSDate alloc] init];
 	completedLength = [endDate timeIntervalSinceDate:startDate];
-	wasSuccessful = completedLength >= 0;
+	
+	//DID THE WIN? DID THEY LOSE?
+	wasSuccessful = completedLength - attemptedLength >= 0;
+	
+	//set current app store attempt to null
+	[[AppStore sharedInstance] setCurrentAttempt:nil];
+	
+	//archive all attempts
+	[[AppStore sharedInstance] archiveAttempts];
 }
 
 
@@ -74,17 +83,19 @@
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
 	[aCoder encodeObject:startDate forKey:@"startDate"];
+	[aCoder encodeObject:endDate forKey:@"endDate"];
 	[aCoder encodeDouble:attemptedLength forKey:@"attemptedLength"];
 	[aCoder	encodeBool:wasSuccessful forKey:@"wasSuccessful"];
 }
 -(id)initWithCoder:(NSCoder*)decoder
 {
-	self = [self initWithStartDate:nil desiredLength:0];
+	self = [self initWithDesiredLength:0];
 	
 	if (self)
 	{
 		startDate = [decoder decodeObjectForKey:@"startDate"];
-		attemptedLength = [decoder decodeDoubleForKey:@"endDate"];
+		endDate = [decoder decodeObjectForKey:@"endDate"];
+		attemptedLength = [decoder decodeDoubleForKey:@"attemptedLength"];
 		wasSuccessful = [decoder decodeBoolForKey:@"wasSuccessful"];
 	}
 	

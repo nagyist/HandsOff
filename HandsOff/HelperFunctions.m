@@ -22,14 +22,16 @@ NSString *timeStringFromTimeInterval(NSTimeInterval interval)
 			[time appendFormat:@"%d hour", hours];
 		else
 			[time appendFormat:@"%d hours", hours];
-	if (hours > 0 && minutes > 0)
+	else if (hours > 0 && minutes > 0)
 		[time appendString:@", "];
-	if (minutes > 0)
+	else if (minutes > 0)
 		if (minutes == 1)
 			[time appendFormat:@"%d minute", minutes];
 		else
 			[time appendFormat:@"%d minutes", minutes];			
-
+	else
+		[time appendString:@"Less than one minute"];
+	
 	return [NSString stringWithString:time];		
 }
 

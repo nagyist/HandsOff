@@ -111,7 +111,7 @@
 		desiredFocusTime = [[times objectForKey:@"btnTime4"] floatValue];		
 	}
 	
-	desiredFocusTimeInSeconds = (int)(desiredFocusTime * 3600);
+	desiredFocusTimeInSeconds = (NSTimeInterval)(desiredFocusTime * 3600);
 	
 	//make an NSDate that schedules the notification
 	timeToStop = [[[NSDate alloc] init] dateByAddingTimeInterval:desiredFocusTimeInSeconds];
@@ -131,19 +131,15 @@
 	[[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 	
 	//build a new attempt object and set it as the current Attempt
-	NSDate *now = [[NSDate alloc] init];
-	HandsOffAttempt *newAttempt = [[HandsOffAttempt alloc] initWithStartDate:now 
-															   desiredLength:desiredFocusTimeInSeconds];
+	HandsOffAttempt *newAttempt = [[HandsOffAttempt alloc] initWithDesiredLength:desiredFocusTimeInSeconds];
 	
 	//if there was a current attempt in memory already -- it's probably because we're in dev mode with only a 5-second timer
 	//to make sure nothing is messed up, we'll close the current attempt.  Yay -- you won ;)
 	if ([[AppStore sharedInstance] currentAttempt]){
 		[[[AppStore sharedInstance] currentAttempt] endAttempt];
-		[[AppStore sharedInstance] setCurrentAttempt:nil];
 	}
 
 	//add this new attempt to the Application Store
-	[[AppStore sharedInstance] setCurrentAttempt:newAttempt];
 	[[AppStore sharedInstance] addAttempt:newAttempt];
 
 	//tell user to lock their phone
@@ -170,27 +166,8 @@
 	
 	
 
-    // Converts the sound's file path to an NSURL object
-    NSURL *newURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"error"
-																			ofType:@"mp3"]];
-	
-	NSError *error;
-	AVAudioPlayer *errorSound = [[AVAudioPlayer alloc] initWithContentsOfURL:newURL error:&error];
 
-	[errorSound prepareToPlay];
-	[errorSound setVolume:1.0];
-	[errorSound setDelegate:self];
-	[errorSound play];
 
-}
--(void)userReturnedToAppVictorious
-{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You win!" 
-													message:@"Best iPhoner ever"
-												   delegate:self
-										  cancelButtonTitle:@"I AM GOD" 
-										  otherButtonTitles:nil];
-	[alert show];
 }
 
 //when the user get's the "LOCK YOUR PHONE" instruction, they may lock the phone without dismissing this alert

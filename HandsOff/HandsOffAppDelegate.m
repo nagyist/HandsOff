@@ -8,6 +8,7 @@
 
 #import "HandsOffAppDelegate.h"
 #import "HandsOffMainViewController.h"
+#import "AttemptFinishedViewController.h"
 
 @implementation HandsOffAppDelegate
 
@@ -59,20 +60,17 @@
 	HandsOffAttempt *currentAttempt = [[AppStore sharedInstance] currentAttempt];	
 	if (currentAttempt)
 	{
-		//close the attempt object
+		//close the attempt object. this will set teh appStore 'currentAttempt' to nil
+		//and also re-archive all of our data
 		[currentAttempt endAttempt];
-		//archive all attempts
-		[[AppStore sharedInstance] archiveAttempts];
-		//get rid of the "current attempt"
-		[[AppStore sharedInstance] setCurrentAttempt:nil];
 		
 		//now do logic to let user know if they blew it or not
 		HandsOffMainViewController *rootVC = (HandsOffMainViewController *)[[self window] rootViewController];
 		
-		if ([currentAttempt wasSuccessful])
-			[rootVC userReturnedToAppVictorious];
-		else
-			[rootVC userReturnedToAppEarly];			
+		//call this method, which will show their totally awesome feedback
+		AttemptFinishedViewController *afvc = [[AttemptFinishedViewController alloc] initWithAttempt:currentAttempt];
+		[rootVC presentModalViewController:afvc animated:YES];
+		//[rootVC userReturnedToAppFromAttempt:currentAttempt];
 	}
 }
 

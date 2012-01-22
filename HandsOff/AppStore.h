@@ -11,6 +11,6 @@
 + (id)sharedInstance;
 - (void)addAttempt:(HandsOffAttempt*)attempt;
 - (BOOL)archiveAttempts;
-
+- (void)eraseAllAttempts;
 
 @end

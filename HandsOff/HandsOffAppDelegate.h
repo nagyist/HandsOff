@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class HandsOffMainViewController;
-
+@class AttemptFinishedViewController;
 @interface HandsOffAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

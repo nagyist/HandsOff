@@ -22,7 +22,5 @@
 }
 - (IBAction)showInfo:(id)sender;
 - (IBAction)startTime:(id)sender;
-- (void)userReturnedToAppEarly;
-- (void)userReturnedToAppVictorious;
 - (void)forceCloseLockYourPhoneAlert;
 @end

@@ -23,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet id <HandsOffFlipsideViewControllerDelegate> delegate;
 
 - (IBAction)done:(id)sender;
+- (IBAction)clearHistory:(id)sender;
 
 @end

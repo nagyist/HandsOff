@@ -81,6 +81,19 @@ static AppStore *sharedInstance = nil;
 	//already loaded the array.  however, just in case -- we'll load it here.
 	[self fetchAttemptsIfNecessary];
 	[attempts addObject:attempt];
-	[self archiveAttempts];
+
+	//set this as the app's current attempt
+	[[AppStore sharedInstance] setCurrentAttempt:attempt];
+}
+
+- (void)eraseAllAttempts
+{
+
+	NSError *error;
+	NSString *storedPath = pathInDocumentDirectory(@"allAttempts.data");
+	[[NSFileManager defaultManager] removeItemAtPath:storedPath error:&error];
+	
+	currentAttempt = nil;
+	attempts = nil;
 }
 @end

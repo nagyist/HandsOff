@@ -22,7 +22,7 @@
 @property(nonatomic,readonly) NSTimeInterval completedLength;
 @property(nonatomic,readonly) BOOL wasSuccessful;
 
--(id)initWithStartDate:(NSDate *)start desiredLength:(NSTimeInterval)length;
+-(id)initWithDesiredLength:(NSTimeInterval)length;
 -(void)endAttempt;
 
 @end

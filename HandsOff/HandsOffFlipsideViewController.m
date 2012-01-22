@@ -73,41 +73,53 @@
 {
 	//get attempts array (make a mutable copy)
 	NSMutableArray *attempts = [NSMutableArray arrayWithArray:[[AppStore sharedInstance] attempts]];
-
+	
+	//Sort that array from newest to oldest
 	[attempts sortUsingComparator:^(id obj1, id obj2) {
 		HandsOffAttempt *attempt1 = (HandsOffAttempt*)obj1;
 		HandsOffAttempt *attempt2 = (HandsOffAttempt*)obj2;
-
-		//compare.  we don't need to worry about the two values being equal
-		if([attempt1 startDate] > [attempt2 startDate])
-			return (NSComparisonResult)NSOrderedDescending;
 		
-		return (NSComparisonResult)NSOrderedAscending;
+		return [[attempt2 startDate] compare:[attempt1 startDate]];
 	}];
 	
 	//get information about the attempt.  compile the data we'll need for a table cell
 	HandsOffAttempt *attempt = [attempts objectAtIndex:[indexPath row]];
-	NSLog(@"NOW I HAVE ONE %@", attempt);
-	NSLog(@"With startDate: %@, and endDate: %@, and successful:%@
-	
-	
+		
+	//let's build up some date stringy things.
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-	[dateFormatter setDateStyle:NSDateFormatterShortStyle];
-	//get formatted startDateString
-	NSString *startDateString = [dateFormatter stringFromDate:[attempt startDate]];
-	//get attempt's Succesfully completed time as string with sweet-ass helper function
-	NSTimeInterval actualAttemptLength = [[attempt endDate] timeIntervalSinceDate:[attempt startDate]];
-	NSString *attemptLengthString = timeStringFromTimeInterval(actualAttemptLength);
+	dateFormatter.timeStyle = NSDateFormatterNoStyle;
+	dateFormatter.dateStyle = NSDateFormatterShortStyle;
+
+	//use the date formatter to get formatted startDateString
+	NSString *attemptDateString = [dateFormatter stringFromDate:[attempt startDate]];
 	
+	//if they were successful, just display their Goal (i.e 4 hours). DON'T display the full time they were gone
+	//(i.e. 4 hours, 27 minutes)
+	NSMutableString *attemptLengthString = [NSMutableString stringWithString:@""];
+	if ([attempt wasSuccessful])
+		[attemptLengthString appendString:timeStringFromTimeInterval([attempt attemptedLength])];
+	else
+		[attemptLengthString appendString:timeStringFromTimeInterval([attempt completedLength])];
+	
+	//start to buld the table cell
 	UITableViewCell *cell = 
 	[tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
 	
 	if (!cell)
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
 									  reuseIdentifier:@"UITableViewCell"];
+	//set text properties
 	[[cell textLabel] setText:attemptLengthString];
-	[[cell detailTextLabel] setText:startDateString];
+	[[cell detailTextLabel] setText:attemptDateString];
+
+	//chose an image based on success/fail
+	if ([attempt wasSuccessful])
+		[[cell imageView] 
+			setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"checkmark" 
+																					  ofType:@"jpg"]]];
+	else
+		[[cell imageView] setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"redx"
+																									ofType:@"jpg"]]];
 	
 	return cell;
 
@@ -115,7 +127,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 2;
+	return [[[AppStore sharedInstance] attempts] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	return @"Previous attempts";
+}
+
+-(void)clearHistory:(id)sender
+{
+	//erase all our previous attempts and 
+	[[AppStore sharedInstance] eraseAllAttempts];
+	[attemptsTable reloadData];
 }
 
 
