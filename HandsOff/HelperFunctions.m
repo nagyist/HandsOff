@@ -10,30 +10,48 @@
 
 
 #pragma mark Helper functions
-NSString *timeStringFromTimeInterval(NSTimeInterval interval)
+NSString *timeStringFromTimeIntervalWithSeconds(NSTimeInterval interval)
 {
+
+	NSMutableString *time = [NSMutableString stringWithString:@""];
+	
 	int hours = (int)interval / 3600;
 	int minutes = ((int)interval%3600) / 60;
-	
-	NSMutableString *time = [NSMutableString stringWithString:@""];
+	int seconds = ((int)interval%60);
 	
 	if (hours > 0)
 		if (hours == 1)
 			[time appendFormat:@"%d hour", hours];
 		else
 			[time appendFormat:@"%d hours", hours];
-	else if (hours > 0 && minutes > 0)
-		[time appendString:@", "];
-	else if (minutes > 0)
-		if (minutes == 1)
-			[time appendFormat:@"%d minute", minutes];
+	
+	if (minutes > 0)
+		if (hours > 0)
+			[time appendFormat:@", %d minutes", minutes];
 		else
-			[time appendFormat:@"%d minutes", minutes];			
-	else
-		[time appendString:@"Less than one minute"];
+			[time appendFormat:@"%d minutes", minutes];
+	if (seconds > 0)
+		if (hours > 0 || minutes > 0)
+			[time appendFormat:@", %d seconds", seconds];
+		else 
+			[time appendFormat:@"%d seconds", seconds];
+
 	
 	return [NSString stringWithString:time];		
 }
+//most of the time we call this method, we don't normally care about seconds
+//it chops off seconds from the passed-in interval and calls timeStringFromTimeInterval
+NSString *timeStringFromTimeInterval(NSTimeInterval interval)
+{
+	if ((int)interval < 60)
+		return @"Less than one minute";
+	
+	//adjust interval to remove seconds.  above method omits "seconds" if the value is 0
+	NSTimeInterval newInterval = (NSTimeInterval)( (int)interval - (int)interval%60);
+	return timeStringFromTimeIntervalWithSeconds(newInterval);
+}
+
+
 
 NSString *pathInDocumentDirectory(NSString *fileName)
 {

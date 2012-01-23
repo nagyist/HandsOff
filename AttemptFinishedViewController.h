@@ -14,7 +14,6 @@
 	__weak IBOutlet UILabel *goalTimeLabel;
 	__weak IBOutlet UILabel *messageLabel;
 	__weak IBOutlet UILabel *actualTimeLabel;
-	
 	HandsOffAttempt *myAttempt;
 }
 

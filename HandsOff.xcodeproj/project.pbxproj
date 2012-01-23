@@ -33,6 +33,8 @@
 		7DBD09B114CBF9A9001873B3 /* redx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DBD09B014CBF9A9001873B3 /* redx.jpg */; };
 		7DBD09B514CC0719001873B3 /* AttemptFinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD09B314CC0719001873B3 /* AttemptFinishedViewController.m */; };
 		7DBD09B614CC0719001873B3 /* AttemptFinishedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DBD09B414CC0719001873B3 /* AttemptFinishedViewController.xib */; };
+		7DD1D50014CCC58800C8A983 /* LockYourPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1D4FE14CCC58800C8A983 /* LockYourPhoneViewController.m */; };
+		7DD1D50114CCC58800C8A983 /* LockYourPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD1D4FF14CCC58800C8A983 /* LockYourPhoneViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,9 @@
 		7DBD09B214CC0718001873B3 /* AttemptFinishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttemptFinishedViewController.h; sourceTree = "<group>"; };
 		7DBD09B314CC0719001873B3 /* AttemptFinishedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttemptFinishedViewController.m; sourceTree = "<group>"; };
 		7DBD09B414CC0719001873B3 /* AttemptFinishedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttemptFinishedViewController.xib; sourceTree = "<group>"; };
+		7DD1D4FD14CCC58800C8A983 /* LockYourPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockYourPhoneViewController.h; sourceTree = "<group>"; };
+		7DD1D4FE14CCC58800C8A983 /* LockYourPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockYourPhoneViewController.m; sourceTree = "<group>"; };
+		7DD1D4FF14CCC58800C8A983 /* LockYourPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LockYourPhoneViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +159,9 @@
 				7DA40D4B14CA8905000466E5 /* HandsOffAppDelegate.h */,
 				7DA40D4C14CA8905000466E5 /* HandsOffAppDelegate.m */,
 				7DA40D4E14CA8905000466E5 /* HandsOffMainViewController.h */,
+				7DD1D4FD14CCC58800C8A983 /* LockYourPhoneViewController.h */,
+				7DD1D4FE14CCC58800C8A983 /* LockYourPhoneViewController.m */,
+				7DD1D4FF14CCC58800C8A983 /* LockYourPhoneViewController.xib */,
 				7DA40D4F14CA8905000466E5 /* HandsOffMainViewController.m */,
 				7DA40D8514CB36C7000466E5 /* HelperFunctions.h */,
 				7DA40D8614CB36C7000466E5 /* HelperFunctions.m */,
@@ -280,6 +288,7 @@
 				7DBD09AE14CBF43E001873B3 /* checkmark.jpg in Resources */,
 				7DBD09B114CBF9A9001873B3 /* redx.jpg in Resources */,
 				7DBD09B614CC0719001873B3 /* AttemptFinishedViewController.xib in Resources */,
+				7DD1D50114CCC58800C8A983 /* LockYourPhoneViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +331,7 @@
 				7DA40D8714CB36C7000466E5 /* HelperFunctions.m in Sources */,
 				7DBD09AB14CB661A001873B3 /* HandsOffAttempt.m in Sources */,
 				7DBD09B514CC0719001873B3 /* AttemptFinishedViewController.m in Sources */,
+				7DD1D50014CCC58800C8A983 /* LockYourPhoneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

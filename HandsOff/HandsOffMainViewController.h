@@ -7,6 +7,7 @@
 //
 
 #import "HandsOffFlipsideViewController.h"
+#import "LockYourPhoneViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <Security/Security.h>
 
@@ -18,9 +19,9 @@
 	__weak IBOutlet UIButton *btnTime2;
 	__weak IBOutlet UIButton *btnTime3;
 	__weak IBOutlet UIButton *btnTime4;
-	UIAlertView *lockYourPhoneAlert;
+	LockYourPhoneViewController *lockYourPhoneVC;
 }
 - (IBAction)showInfo:(id)sender;
 - (IBAction)startTime:(id)sender;
-- (void)forceCloseLockYourPhoneAlert;
+- (void)dismissLockYourPhoneViewController;
 @end

@@ -8,5 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
+NSString *timeStringFromTimeIntervalWithSeconds(NSTimeInterval interval);
 NSString *timeStringFromTimeInterval(NSTimeInterval interval);
 NSString *pathInDocumentDirectory(NSString *fileName);

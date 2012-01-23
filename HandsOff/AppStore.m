@@ -86,6 +86,18 @@ static AppStore *sharedInstance = nil;
 	[[AppStore sharedInstance] setCurrentAttempt:attempt];
 }
 
+//gives us the ability to cancel an attempt that's underway, and remove it from the AllAttempts array
+-(void)cancelCurrentAttempt
+{
+	NSLog(@"cancel attemtp");
+	if (currentAttempt)
+	{
+		NSLog(@"Attempt?");
+		[attempts removeObjectIdenticalTo:currentAttempt];
+		currentAttempt = nil;
+	}
+}
+
 - (void)eraseAllAttempts
 {
 

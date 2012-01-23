@@ -12,5 +12,6 @@
 - (void)addAttempt:(HandsOffAttempt*)attempt;
 - (BOOL)archiveAttempts;
 - (void)eraseAllAttempts;
+- (void)cancelCurrentAttempt;
 
 @end

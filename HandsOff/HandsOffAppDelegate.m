@@ -34,7 +34,7 @@
 
 	//if the user just started a timer, and locked their phone, we want to make sure the
 	//"Lock your Phone" message is dismissed"
-	[self.mainViewController forceCloseLockYourPhoneAlert];
+	[self.mainViewController dismissLockYourPhoneViewController];
 	
 	//save array of attempts in App Store
 	[[AppStore sharedInstance] archiveAttempts];
@@ -70,7 +70,6 @@
 		//call this method, which will show their totally awesome feedback
 		AttemptFinishedViewController *afvc = [[AttemptFinishedViewController alloc] initWithAttempt:currentAttempt];
 		[rootVC presentModalViewController:afvc animated:YES];
-		//[rootVC userReturnedToAppFromAttempt:currentAttempt];
 	}
 }
 

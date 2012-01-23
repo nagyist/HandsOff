@@ -143,41 +143,27 @@
 	[[AppStore sharedInstance] addAttempt:newAttempt];
 
 	//tell user to lock their phone
-	if (lockYourPhoneAlert)
+	if (lockYourPhoneVC)
 	{
-		lockYourPhoneAlert = nil;
+		lockYourPhoneVC = nil;
 	}
-	lockYourPhoneAlert = [[UIAlertView alloc] initWithTitle:@"Lock your phone"
-													message:[NSString stringWithFormat:@"%@ %@", @"Press the lock button (don't press the Home button!), and don't come back for", timeStringFromTimeInterval((NSTimeInterval)desiredFocusTimeInSeconds)]
-												   delegate:self 
-										  cancelButtonTitle:@"OK" 
-										  otherButtonTitles:nil, nil];
-	[lockYourPhoneAlert show];
+	//lock your phone
+	lockYourPhoneVC = [[LockYourPhoneViewController alloc] initWithAttempt:newAttempt];
+	//show this message modally.  it will get closed when the App resigns active focus
+
+	[lockYourPhoneVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+	[self presentModalViewController:lockYourPhoneVC animated:YES];
 }
 
--(void)userReturnedToAppEarly
+//when the user get's the "LOCK YOUR PHONE" instruction, they cannot dismiss it.  However, when
+//they lock their phone, ApplicationWillResignActive is called in the App Delegate.  we'll call this method
+//from there to dismiss the view controller
+-(void)dismissLockYourPhoneViewController
 {
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You lose!" 
-													message:@"Worse iPhoner ever"
-												   delegate:self
-										  cancelButtonTitle:@"Gee, thanks" 
-										  otherButtonTitles:nil];
-	[alert show];
-	
-	
-
-
-
-}
-
-//when the user get's the "LOCK YOUR PHONE" instruction, they may lock the phone without dismissing this alert
-//exposing this method allows us to force the alert to disappear during ApplicationWillResignAcctive
--(void)forceCloseLockYourPhoneAlert
-{
-	if (lockYourPhoneAlert)
+	if (lockYourPhoneVC)
 	{
-		[lockYourPhoneAlert dismissWithClickedButtonIndex:0 animated:YES];
-		lockYourPhoneAlert = nil;
+		[lockYourPhoneVC dismissModalViewControllerAnimated:NO];
+		lockYourPhoneVC = nil;
 	}
 }
 

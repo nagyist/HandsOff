@@ -41,21 +41,41 @@
 {
 	[super viewWillAppear:animated];
 	
-	//set the message label at the top
-	if ([myAttempt wasSuccessful])
-		[messageLabel setText:@"Nicely done!"];
-	else
-		[messageLabel setText:@"Epic fail!"];
-	
-	//set goal / actual labels
-	[actualTimeLabel setText:timeStringFromTimeInterval([myAttempt completedLength])];
-	[goalTimeLabel setText:timeStringFromTimeInterval([myAttempt attemptedLength])];
+//	//set the message label at the top
+//	if ([myAttempt wasSuccessful])
+//	{
+//		[messageLabel setText:@"Nicely done!"];
+//		[[self view] setBackgroundColor:[UIColor colorWithRed:0.0 green:133.0 blue:111.0 alpha:1.0]];
+//	}
+//	else
+//	{
+//		[messageLabel setText:@"Epic fail!"];
+//		[[self view] setBackgroundColor:[UIColor colorWithRed:227.0 green:37.0 blue:78.0 alpha:1.0]];
+//	}
+//	//set goal / actual labels
+//	[actualTimeLabel setText:timeStringFromTimeInterval([myAttempt completedLength])];
+//	[goalTimeLabel setText:timeStringFromTimeInterval([myAttempt attemptedLength])];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	
+	//set the message label at the top
+	if ([myAttempt wasSuccessful])
+	{
+		[messageLabel setText:@"Nicely done!"];
+		[[self view] setBackgroundColor:[UIColor colorWithRed:0.0 green:133.0/256 blue:111.0/256 alpha:1.0]];
+	}
+	else
+	{
+		[messageLabel setText:@"Epic fail!"];
+		[[self view] setBackgroundColor:[UIColor colorWithRed:227.0/256 green:37.0/256 blue:78.0/256 alpha:1.0]];
+	}
+	//set goal / actual labels
+	[actualTimeLabel setText:timeStringFromTimeInterval([myAttempt completedLength])];
+	[goalTimeLabel setText:timeStringFromTimeInterval([myAttempt attemptedLength])];
 }
 
 - (void)viewDidUnload
