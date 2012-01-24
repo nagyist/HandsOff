@@ -57,43 +57,35 @@
 #pragma mark - View lifecycle
 - (void)timerTick:(NSTimer *)timer
 {
-	//we set in here how long we want this timer to be;
-	//RIGHT HERE
-	//THIS IS WHERE THAT PIECE OF INFORMATION YOU ARE LOOKING FOR IS
-	int timerLength = 8;	
-	//increment tick counter
 	timerTickCount++;
 	
-	if (timerTickCount == timerLength)
+	if (timerTickCount == lockPhoneCountdownLength)
 	{
 		[timer invalidate];
-		NSLog(@"timer ticked dowN");
 		
 		//cancel this screen.
 		[self cancelAttempt];
 	} 
-	else 
-	{
-		//update the view
-		[countdownLabel setText:[NSString stringWithFormat:@"%d", timerLength - timerTickCount]];
-	}
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	lockPhoneCountdownLength = 6;	
+	
     // Do any additional setup after loading the view from its nib.
 
 	//use this attempt object to set the text
 	NSString *dontComeBackString = [NSString stringWithFormat:@"Don't come back for %@", timeStringFromTimeInterval([attempt attemptedLength])];
 	[dontComeBackLabel setText:dontComeBackString];	
 
-	//start the time-ticking thing.  in X seconds (determined inside the method 'timerTick'),
-	//we will cancel their attempt. obviously they weren't interested in using our app... ;(
+
+	// if they don't lock the phone in 5 seconds we'll cancel the attempt
 	lockPhoneCountdown = [NSTimer scheduledTimerWithTimeInterval:1
-									 target:self	
-								   selector:@selector(timerTick:) 
-								   userInfo:nil 
-									repeats:YES];
+														  target:self
+														selector:@selector(timerTick:)
+														userInfo:nil
+														 repeats:YES];
 }
 
 - (void)viewDidUnload

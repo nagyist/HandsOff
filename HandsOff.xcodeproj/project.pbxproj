@@ -48,7 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7DA40D3814CA8905000466E5 /* HandsOff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsOff.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DA40D3814CA8905000466E5 /* Hands Off.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hands Off.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DA40D3C14CA8905000466E5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7DA40D3E14CA8905000466E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7DA40D4014CA8905000466E5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,7 +134,7 @@
 		7DA40D3914CA8905000466E5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7DA40D3814CA8905000466E5 /* HandsOff.app */,
+				7DA40D3814CA8905000466E5 /* Hands Off.app */,
 				7DA40D5F14CA8906000466E5 /* HandsOffTests.octest */,
 			);
 			name = Products;
@@ -213,9 +213,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7DA40D3714CA8905000466E5 /* HandsOff */ = {
+		7DA40D3714CA8905000466E5 /* Hands Off */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7DA40D7114CA8906000466E5 /* Build configuration list for PBXNativeTarget "HandsOff" */;
+			buildConfigurationList = 7DA40D7114CA8906000466E5 /* Build configuration list for PBXNativeTarget "Hands Off" */;
 			buildPhases = (
 				7DA40D3414CA8905000466E5 /* Sources */,
 				7DA40D3514CA8905000466E5 /* Frameworks */,
@@ -225,9 +225,9 @@
 			);
 			dependencies = (
 			);
-			name = HandsOff;
+			name = "Hands Off";
 			productName = HandsOff;
-			productReference = 7DA40D3814CA8905000466E5 /* HandsOff.app */;
+			productReference = 7DA40D3814CA8905000466E5 /* Hands Off.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7DA40D5E14CA8906000466E5 /* HandsOffTests */ = {
@@ -269,7 +269,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7DA40D3714CA8905000466E5 /* HandsOff */,
+				7DA40D3714CA8905000466E5 /* Hands Off */,
 				7DA40D5E14CA8906000466E5 /* HandsOffTests */,
 			);
 		};
@@ -348,7 +348,7 @@
 /* Begin PBXTargetDependency section */
 		7DA40D6514CA8906000466E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7DA40D3714CA8905000466E5 /* HandsOff */;
+			target = 7DA40D3714CA8905000466E5 /* Hands Off */;
 			targetProxy = 7DA40D6414CA8906000466E5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -502,7 +502,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7DA40D7114CA8906000466E5 /* Build configuration list for PBXNativeTarget "HandsOff" */ = {
+		7DA40D7114CA8906000466E5 /* Build configuration list for PBXNativeTarget "Hands Off" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7DA40D7214CA8906000466E5 /* Debug */,

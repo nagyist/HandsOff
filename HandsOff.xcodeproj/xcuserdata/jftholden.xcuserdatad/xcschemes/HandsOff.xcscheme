@@ -15,7 +15,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7DA40D3714CA8905000466E5"
                BuildableName = "HandsOff.app"
-               BlueprintName = "HandsOff"
+               BlueprintName = "Hands Off"
                ReferencedContainer = "container:HandsOff.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,7 +43,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7DA40D3714CA8905000466E5"
             BuildableName = "HandsOff.app"
-            BlueprintName = "HandsOff"
+            BlueprintName = "Hands Off"
             ReferencedContainer = "container:HandsOff.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,7 +61,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7DA40D3714CA8905000466E5"
             BuildableName = "HandsOff.app"
-            BlueprintName = "HandsOff"
+            BlueprintName = "Hands Off"
             ReferencedContainer = "container:HandsOff.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -79,7 +79,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7DA40D3714CA8905000466E5"
             BuildableName = "HandsOff.app"
-            BlueprintName = "HandsOff"
+            BlueprintName = "Hands Off"
             ReferencedContainer = "container:HandsOff.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

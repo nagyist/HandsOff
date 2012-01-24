@@ -60,6 +60,10 @@
 	HandsOffAttempt *currentAttempt = [[AppStore sharedInstance] currentAttempt];	
 	if (currentAttempt)
 	{
+		//whether or not they won, let's tell the device to cancel all local notifications for our app.
+		//it was not fun when i was self-spamming b/c i had a bug
+		[[UIApplication sharedApplication] cancelAllLocalNotifications];
+		
 		//close the attempt object. this will set teh appStore 'currentAttempt' to nil
 		//and also re-archive all of our data
 		[currentAttempt endAttempt];

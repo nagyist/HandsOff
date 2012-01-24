@@ -135,11 +135,27 @@
 	return @"Previous attempts";
 }
 
--(void)clearHistory:(id)sender
+// actual 'history-clearing' method
+-(void)clearHistory
 {
-	//erase all our previous attempts and 
 	[[AppStore sharedInstance] eraseAllAttempts];
-	[attemptsTable reloadData];
+	[attemptsTable reloadData];	
+}
+//ui outlet
+-(IBAction)clearHistory:(id)sender
+{
+	//prompt with / are you sure? /
+	
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Clear History" message:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes",nil];
+	[alert show];
+}
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	//they pressed ok
+	if (buttonIndex == 1)
+	{
+		[self clearHistory];
+	}
 }
 
 

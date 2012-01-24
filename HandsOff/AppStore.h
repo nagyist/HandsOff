@@ -2,8 +2,8 @@
 #import "HandsOffAttempt.h"
 @interface AppStore : NSObject {
 	HandsOffAttempt *currentAttempt;
+	NSArray *timeChoices;
 	NSMutableArray *attempts;
-	
 	//this is private
 }
 @property(nonatomic,retain) HandsOffAttempt *currentAttempt;
@@ -13,5 +13,5 @@
 - (BOOL)archiveAttempts;
 - (void)eraseAllAttempts;
 - (void)cancelCurrentAttempt;
-
+- (NSArray*)timeChoices;
 @end

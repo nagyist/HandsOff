@@ -12,7 +12,7 @@
 #pragma mark Helper functions
 NSString *timeStringFromTimeIntervalWithSeconds(NSTimeInterval interval)
 {
-
+	NSLog(@"%d",interval);
 	NSMutableString *time = [NSMutableString stringWithString:@""];
 	
 	int hours = (int)interval / 3600;

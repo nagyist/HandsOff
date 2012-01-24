@@ -89,10 +89,8 @@ static AppStore *sharedInstance = nil;
 //gives us the ability to cancel an attempt that's underway, and remove it from the AllAttempts array
 -(void)cancelCurrentAttempt
 {
-	NSLog(@"cancel attemtp");
 	if (currentAttempt)
 	{
-		NSLog(@"Attempt?");
 		[attempts removeObjectIdenticalTo:currentAttempt];
 		currentAttempt = nil;
 	}
@@ -107,5 +105,29 @@ static AppStore *sharedInstance = nil;
 	
 	currentAttempt = nil;
 	attempts = nil;
+}
+
+- (NSArray *)timeChoices
+{
+	if (!timeChoices)
+	{
+		NSMutableArray *times = [[NSMutableArray alloc] init];
+
+		//add times in seconds
+		
+		//dev:
+		[times addObject:[NSNumber numberWithInt:5]];
+		
+		//production:
+		//[times addObject:[NSNumber numberWithInt:1800]];
+		
+		[times addObject:[NSNumber numberWithFloat:3600]];
+		[times addObject:[NSNumber numberWithFloat:3600 * 2]];
+		[times addObject:[NSNumber numberWithFloat:3600 * 4]];
+		
+		//set the publicly available dictionary == a copy of this mutable one we just built.
+		timeChoices = [NSArray arrayWithArray:times];
+	}
+	return timeChoices;
 }
 @end

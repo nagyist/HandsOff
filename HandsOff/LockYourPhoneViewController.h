@@ -18,6 +18,8 @@
 	
 	//we'll give em' 10 seconds to lock their phone, or.. cancel
 	NSTimer *lockPhoneCountdown;
+	uint lockPhoneCountdownLength;
+	
 	NSUInteger timerTickCount;
 }
 

@@ -24,6 +24,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	
+	//get list of available times from app store
+	NSArray *times = [[AppStore sharedInstance] timeChoices];
+
+	//configure the display of time lengths on every button
+	[btnTime1 setTitle:timeStringFromTimeIntervalWithSeconds([[times objectAtIndex:0] doubleValue]) forState:UIControlStateNormal];
+	[btnTime2 setTitle:timeStringFromTimeIntervalWithSeconds([[times objectAtIndex:1] doubleValue]) forState:UIControlStateNormal];
+	[btnTime3 setTitle:timeStringFromTimeIntervalWithSeconds([[times objectAtIndex:2] doubleValue]) forState:UIControlStateNormal];
+	[btnTime4 setTitle:timeStringFromTimeIntervalWithSeconds([[times objectAtIndex:3] doubleValue]) forState:UIControlStateNormal];
 }
 
 - (void)viewDidUnload
@@ -72,7 +81,7 @@
 }
 
 - (IBAction)showInfo:(id)sender
-{    
+{
     HandsOffFlipsideViewController *controller = [[HandsOffFlipsideViewController alloc] initWithNibName:@"HandsOffFlipsideViewController" bundle:nil];
     controller.delegate = self;
     controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
@@ -84,34 +93,25 @@
 {
 	UIButton *buttonPressed = (UIButton*)sender;
 	//build a list of all the possible pause times
-	NSMutableDictionary *times = [[NSMutableDictionary alloc] init];
-	
-	//dev mode: 5 second delay for 1st button
-	[times setValue:[NSNumber numberWithFloat:0.0015] forKey:@"btnTime1"];
-
-	//production. 30 minute delay
-	//[times setValue:[NSNumber numberWithFloat:0.5] forKey:@"btnTime1"];
-	[times setValue:[NSNumber numberWithFloat:1.0] forKey:@"btnTime2"];
-	[times setValue:[NSNumber numberWithFloat:2.0] forKey:@"btnTime3"];
-	[times setValue:[NSNumber numberWithFloat:4.0] forKey:@"btnTime4"];
 
 	//declare an int that represents the number of desired seconds of focus time
-	float desiredFocusTime;
 	int desiredFocusTimeInSeconds;
+	
 	//declare an date that represents when the system will let you know that you've succeeded
 	NSDate *timeToStop;
 	
-	if (buttonPressed == btnTime1) {
-		desiredFocusTime = [[times objectForKey:@"btnTime1"] floatValue];
-	} else if (buttonPressed == btnTime2) {
-		desiredFocusTime = [[times objectForKey:@"btnTime2"] floatValue];		
-	} else if (buttonPressed == btnTime3) {		
-		desiredFocusTime = [[times objectForKey:@"btnTime3"] floatValue];
- 	} else if (buttonPressed == btnTime4) {
-		desiredFocusTime = [[times objectForKey:@"btnTime4"] floatValue];		
-	}
+	//get the sorted list of four possible times from app store
+	NSArray *timeChoices = [[AppStore sharedInstance] timeChoices];
 	
-	desiredFocusTimeInSeconds = (NSTimeInterval)(desiredFocusTime * 3600);
+	if (buttonPressed == btnTime1) {
+		desiredFocusTimeInSeconds = [[timeChoices objectAtIndex:0] intValue];
+	} else if (buttonPressed == btnTime2) {
+		desiredFocusTimeInSeconds = [[timeChoices objectAtIndex:1] intValue];
+	} else if (buttonPressed == btnTime3) {		
+		desiredFocusTimeInSeconds = [[timeChoices objectAtIndex:2] intValue];
+ 	} else if (buttonPressed == btnTime4) {
+		desiredFocusTimeInSeconds = [[timeChoices objectAtIndex:3] intValue];
+	}
 	
 	//make an NSDate that schedules the notification
 	timeToStop = [[[NSDate alloc] init] dateByAddingTimeInterval:desiredFocusTimeInSeconds];

@@ -14,7 +14,7 @@
 - (void)flipsideViewControllerDidFinish:(HandsOffFlipsideViewController *)controller;
 @end
 
-@interface HandsOffFlipsideViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
+@interface HandsOffFlipsideViewController : UIViewController <UITableViewDataSource, UITableViewDataSource, UIAlertViewDelegate>
 {
 	
 	__weak IBOutlet UITableView *attemptsTable;
